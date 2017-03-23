@@ -112,9 +112,14 @@
                 <li id="research"><a href="//www.ebi.ac.uk/research"><i class="icon icon-generic" data-icon=")"></i> Research</a></li>
                 <li id="training"><a href="//www.ebi.ac.uk/training"><i class="icon icon-generic" data-icon="t"></i> Training</a></li>
                 <li id="about"><a href="//www.ebi.ac.uk/about"><i class="icon icon-generic" data-icon="i"></i> About us</a></li>
-                <li id="search">
-                  <a href="#" data-toggle="search-global-dropdown"><i class="icon icon-functional" data-icon="1"></i> <span class="show-for-small-only">Search</span></a>
-                  <div id="search-global-dropdown" class="dropdown-pane" data-dropdown data-options="closeOnClick:true;">
+                <!-- Note the strucutre of the search dropdown has been modifired for Angular -->
+                <dropdown-toggle close-on-click="true" pane-id="search-global-dropdown">
+                  <toggle class="menu">
+                    <li id="search">
+                      <a href="#" data-toggle="search-global-dropdown"><i class="icon icon-functional" data-icon="1"></i> <span class="show-for-small-only">Search</span></a>
+                    </li>
+                  </toggle>
+                  <pane>
                     <form id="global-search" name="global-search" action="/ebisearch/search.ebi" method="GET">
                       <fieldset>
                         <div class="input-group">
@@ -127,12 +132,21 @@
                         </div>
                       </fieldset>
                     </form>
-                  </div>
-                </li>
-                <li class="float-right show-for-medium embl-selector">
-                  <button class="button float-right" type="button" data-toggle="embl-dropdown">Hinxton</button>
-                  <!-- The dropdown menu will be programatically added by script.js -->
-                </li>
+                  </pane>
+                </dropdown-toggle>
+                <!-- Note the strucutre of the EMBL Selector dropdown has been modifired for Angular -->
+                <dropdown-toggle id="embl-dropdown-wrapper" close-on-click="true" pane-id="embl-dropdown" pane-align="right">
+                  <toggle class="menu">
+                    <li class="float-right show-for-medium embl-selector">
+                      <button class="button float-right" type="button" data-toggle="embl-dropdown">Hinxton</button>
+                      <!-- The dropdown menu will be programatically added by script.js -->
+                    </li>
+                  </toggle>
+                  <pane>
+                    Loading...
+                  </pane>
+                </dropdown-toggle>
+
               </ul>
             </div>
           </nav>
@@ -155,7 +169,8 @@
                   <li>
                     <a href="#">Directives</a>
                     <ul id="directives-list" class="menu">
-                      <li><a href="#accordion">Accordion</a></li><li><a href="#alert">Alert</a></li><li><a href="#buttons">Buttons</a></li><li><a href="#dropdownMenu">Dropdown Menu</a></li><li><a href="#dropdownToggle">Dropdown Toggle</a></li><li><a href="#modal">Modal</a></li><li><a href="#offcanvas">Offcanvas</a></li><li><a href="#orbit">Orbit</a></li><li><a href="#pagination">Pagination</a></li><li><a href="#progressbar">Progressbar</a></li><li><a href="#rating">Rating</a></li><li><a href="#tabs">Tabs</a></li><li><a href="#tooltip">Tooltip</a></li>
+                      <li><a href="#accordion">Accordion</a></li><li><a href="#alert">Alert</a></li><li><a href="#buttons">Buttons</a></li><li><a href="#dropdownMenu">Dropdown Menu</a></li><li><a href="#dropdown
+                        ">Dropdown Toggle</a></li><li><a href="#modal">Modal</a></li><li><a href="#offcanvas">Offcanvas</a></li><li><a href="#orbit">Orbit</a></li><li><a href="#pagination">Pagination</a></li><li><a href="#progressbar">Progressbar</a></li><li><a href="#rating">Rating</a></li><li><a href="#tabs">Tabs</a></li><li><a href="#tooltip">Tooltip</a></li>
                     </ul>
                   </li>
                   <li><a href="#animations">Animations</a></li>

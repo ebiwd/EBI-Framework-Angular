@@ -546,6 +546,7 @@
             restrict: 'EA',
             bindToController: {
                 closeOnClick: '=',
+                paneId: '@',
                 paneAlign: '@',
                 toggleOnHover: '=',
                 paneOffset: '='
@@ -576,7 +577,8 @@
 
     (function () {
         angular.module("mm.foundation.dropdownToggle").run(["$templateCache", function ($templateCache) {
-            $templateCache.put("template/dropdownToggle/dropdownToggle.html", "<span\n    ng-class=\"{\'is-open\': $ctrl.active}\"\n    ng-click=\"!$ctrl.toggleOnHover && $ctrl.toggle()\"\n    ng-mouseover=\"$ctrl.toggleOnHover && $ctrl.mouseover()\"\n    ng-mouseleave=\"$ctrl.toggleOnHover && $ctrl.mouseleave($event)\"></span>\n<div\n    ng-style=\"$ctrl.css\"\n    ng-class=\"{\'is-open\': $ctrl.active}\"\n    ng-attr-aria-hidden=\"$ctrl.active\"\n    ng-mouseover=\"$ctrl.toggleOnHover && $ctrl.mouseover()\"\n    ng-mouseleave=\"$ctrl.toggleOnHover && $ctrl.mouseleave($event)\"\n    class=\"dropdown-pane{{$ctrl.paneAlign && \' dropdown-pane-\' + $ctrl.paneAlign}}\"></div>\n");
+            $templateCache.put("template/dropdownToggle/dropdownToggle.html", "<span\n    ng-class=\"{\'is-open\': $ctrl.active}\"\n    ng-click=\"!$ctrl.toggleOnHover && $ctrl.toggle()\"\n    ng-mouseover=\"$ctrl.toggleOnHover && $ctrl.mouseover()\"\n    ng-mouseleave=\"$ctrl.toggleOnHover && $ctrl.mouseleave($event)\"></span>\n<div\n    ng-style=\"$ctrl.css\"\n    ng-class=\"{\'is-open\': $ctrl.active}\"\n    ng-attr-aria-hidden=\"$ctrl.active\"\n    ng-mouseover=\"$ctrl.toggleOnHover && $ctrl.mouseover()\"\n    ng-mouseleave=\"$ctrl.toggleOnHover && $ctrl.mouseleave($event)\"\n    "+
+                "id=\"{{$ctrl.paneId}}\"    class=\"dropdown-pane{{$ctrl.paneAlign && \' dropdown-pane-\' + $ctrl.paneAlign}}\"></div>\n");
         }]);
     })();
     angular.module('mm.foundation.mediaQueries', []).factory('matchMedia', ['$document', '$window', function ($document, $window) {

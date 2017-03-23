@@ -1,7 +1,15 @@
 var app = angular.module('foundationDemoApp', ['mm.foundation', 'ngAnimate'], function($httpProvider) {
     FastClick.attach(document.body);
     delete $httpProvider.defaults.headers.common['X-Requested-With'];
+
+    // clone the EMBL dropdown
+    var emblDropdownWrapper = ( document.querySelector( '#embl-dropdown-wrapper pane' ) );
+    var emblDropdown = ( document.querySelector( '#embl-dropdown' ).innerHTML );
+    emblDropdownWrapper.innerHTML = emblDropdown;
+
 });
+
+
 
 app.controller('MainCtrl', function($scope, $http, $document, $modal, orderByFilter) {
     // var url = 'http://50.116.42.77:3001';
