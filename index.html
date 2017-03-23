@@ -1,0 +1,1680 @@
+
+<!doctype html>
+<html lang="en" ng-app="foundationDemoApp" id="top">
+<head>
+  <meta charset="utf-8">
+  <title>The European Bioinformatics Institute &lt; EMBL-EBI</title>
+  <meta name="description" content="EMBL-EBI"><!-- Describe what this page is about -->
+  <meta name="keywords" content="bioinformatics, europe, institute"><!-- A few keywords that relate to the content of THIS PAGE (not the whol project) -->
+  <meta name="author" content="EMBL-EBI"><!-- Your [project-name] here -->
+  <meta name="HandheldFriendly" content="true" />
+  <meta name="MobileOptimized" content="width" />
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#70BDBD"> <!-- Android Chrome mobile browser tab color -->
+
+  <!-- Add information on the life cycle of this page -->
+  <meta name="ebi:owner" content="John Doe"> <!-- Who should be contacted about changes -->
+  <meta name="ebi:review-cycle" content="30"> <!-- In days, how often should the content be reviewed -->
+  <meta name="ebi:last-review" content="2015-12-20"> <!-- The last time the content was reviewed -->
+  <meta name="ebi:expiry" content="2016-01-20"> <!-- When this content is no longer relevant -->
+
+  <!-- If you link to any other sites frequently, consider optimising performance with a DNS prefetch -->
+  <link rel="dns-prefetch" href="//embl.de" />
+
+  <!-- If you have custom icon, replace these as appropriate.
+       You can generate them at realfavicongenerator.net -->
+  <link rel="icon" type="image/x-icon" href="//wwwdev.ebi.ac.uk/web_guidelines/EBI-Framework/v1.2/images/logos/EMBL-EBI/favicons/favicon.ico" />
+  <link rel="icon" type="image/png" href="//wwwdev.ebi.ac.uk/web_guidelines/EBI-Framework/v1.2/images/logos/EMBL-EBI/favicons/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="192×192" href="//wwwdev.ebi.ac.uk/web_guidelines/EBI-Framework/v1.2/images/logos/EMBL-EBI/favicons/android-chrome-192x192.png" /> <!-- Android (192px) -->
+  <link rel="apple-touch-icon-precomposed" sizes="114x114" href="//wwwdev.ebi.ac.uk/web_guidelines/EBI-Framework/v1.2/images/logos/EMBL-EBI/favicons/apple-icon-114x114.png"> <!-- For iPhone 4 Retina display (114px) -->
+  <link rel="apple-touch-icon-precomposed" sizes="72x72" href="//wwwdev.ebi.ac.uk/web_guidelines/EBI-Framework/v1.2/images/logos/EMBL-EBI/favicons/apple-icon-72x72.png"> <!-- For iPad (72px) -->
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="//wwwdev.ebi.ac.uk/web_guidelines/EBI-Framework/v1.2/images/logos/EMBL-EBI/favicons/apple-icon-144x144.png"> <!-- For iPad retinat (144px) -->
+  <link rel="apple-touch-icon-precomposed" href="//wwwdev.ebi.ac.uk/web_guidelines/EBI-Framework/v1.2/images/logos/EMBL-EBI/favicons/apple-icon-57x57.png"> <!-- For iPhone (57px) -->
+  <link rel="mask-icon" href="//wwwdev.ebi.ac.uk/web_guidelines/EBI-Framework/v1.2/images/logos/EMBL-EBI/favicons/safari-pinned-tab.svg" color="#ffffff"> <!-- Safari icon for pinned tab -->
+  <meta name="msapplication-TileColor" content="#2b5797"> <!-- MS Icons -->
+  <meta name="msapplication-TileImage" content="//wwwdev.ebi.ac.uk/web_guidelines/EBI-Framework/v1.2/images/logos/EMBL-EBI/favicons/mstile-144x144.png">
+
+  <!-- CSS: implied media=all -->
+  <!-- CSS concatenated and minified via ant build script-->
+  <link rel="stylesheet" href="//wwwdev.ebi.ac.uk/web_guidelines/EBI-Framework/v1.2/libraries/foundation-6/css/foundation.css" type="text/css" media="all">
+  <link rel="stylesheet" href="//wwwdev.ebi.ac.uk/web_guidelines/EBI-Framework/v1.2/css/ebi-global.css" type="text/css" media="all">
+  <link rel="stylesheet" href="//wwwdev.ebi.ac.uk/web_guidelines/EBI-Icon-fonts/v1.2/fonts.css" type="text/css" media="all">
+
+  <!-- Use this CSS file for any custom styling -->
+  <!--
+    <link rel="stylesheet" href="css/custom.css" type="text/css" media="all">
+  -->
+
+  <!-- If you have a custom header image or colour -->
+  <!--
+  <meta name="ebi:localmasthead-color" content="#000">
+  <meta name="ebi:localmasthead-image" content="//www.ebi.ac.uk/web_guidelines/EBI-Framework/images/backgrounds/embl-ebi-background.jpg">
+  -->
+
+    <!-- you can replace this with theme-[projectname].css. See http://www.ebi.ac.uk/web/style/colour for details of how to do this -->
+  <!-- also inform ES so we can host your colour palette file -->
+  <link rel="stylesheet" href="//wwwdev.ebi.ac.uk/web_guidelines/EBI-Framework/v1.2/css/theme-embl-petrol.css" type="text/css" media="all">
+
+  <!-- for production the above can be replaced with -->
+  <!--
+  <link rel="stylesheet" href="//www.ebi.ac.uk/web_guidelines/css/compliance/mini/ebi-fluid-embl.css">
+  -->
+
+  <!-- end CSS-->
+
+  <!-- Angular  -->
+  <!-- Note that these line are additional, and that we've disabled the default   -->
+  <script src="//cdnjs.cloudflare.com/ajax/libs/fastclick/0.6.7/fastclick.min.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.5.10/angular.min.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.5.10/angular-animate.min.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.5.10/angular-touch.min.js"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/es6-shim/0.35.3/es6-shim.min.js"></script>
+  <script src="angular-foundation.js"></script>
+  <script src="assets/app.js"></script>
+  <!-- <link href="https://cdnjs.cloudflare.com/ajax/libs/foundation/6.2.3/foundation.css" rel="stylesheet"/> -->
+  <!-- <link href="//cdnjs.cloudflare.com/ajax/libs/foundation/6.2.3/css/foundation.min.css" rel="stylesheet"/> -->
+  <link href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet"/>
+  <!-- <link rel="stylesheet" href="assets/rainbow.css"/>
+  <link rel="stylesheet" href="assets/demo.css"/> -->
+
+
+  <!-- All JavaScript at the bottom, except for Modernizr -->
+  <script src="//wwwdev.ebi.ac.uk/web_guidelines/EBI-Framework/v1.2/libraries/modernizr/modernizr.custom.49274.js"></script>
+
+</head>
+
+<body class="ng-cloak level2" ng-controller="MainCtrl"><!-- add any of your classes or IDs -->
+  <div id="skip-to">
+    <ul>
+      <li><a href="#content">Skip to main content</a></li>
+      <li><a href="#local-nav">Skip to local navigation</a></li>
+      <li><a href="#global-nav">Skip to EBI global navigation menu</a></li>
+      <li><a href="#global-nav-expanded">Skip to expanded EBI global navigation menu (includes all sub-sections)</a></li>
+    </ul>
+  </div>
+
+  <div data-sticky-container>
+    <div id="local-masthead" data-sticky data-sticky-on="large" data-top-anchor="180" data-btm-anchor="300000">
+      <header>
+
+        <div id="global-masthead" class="clearfix">
+          <!--This has to be one line and no newline characters-->
+          <a href="//www.ebi.ac.uk/" title="Go to the EMBL-EBI homepage"><span class="ebi-logo"></span></a>
+
+          <nav>
+            <div class="row">
+              <ul id="global-nav" class="menu">
+                <!-- set active class as appropriate -->
+                <li id="home-mobile" class=""><a href="//www.ebi.ac.uk"></a></li>
+                <li id="home" class="active"><a href="//www.ebi.ac.uk"><i class="icon icon-generic" data-icon="H"></i> EMBL-EBI</a></li>
+                <li id="services"><a href="//www.ebi.ac.uk/services"><i class="icon icon-generic" data-icon="("></i> Services</a></li>
+                <li id="research"><a href="//www.ebi.ac.uk/research"><i class="icon icon-generic" data-icon=")"></i> Research</a></li>
+                <li id="training"><a href="//www.ebi.ac.uk/training"><i class="icon icon-generic" data-icon="t"></i> Training</a></li>
+                <li id="about"><a href="//www.ebi.ac.uk/about"><i class="icon icon-generic" data-icon="i"></i> About us</a></li>
+                <li id="search">
+                  <a href="#" data-toggle="search-global-dropdown"><i class="icon icon-functional" data-icon="1"></i> <span class="show-for-small-only">Search</span></a>
+                  <div id="search-global-dropdown" class="dropdown-pane" data-dropdown data-options="closeOnClick:true;">
+                    <form id="global-search" name="global-search" action="/ebisearch/search.ebi" method="GET">
+                      <fieldset>
+                        <div class="input-group">
+                          <input type="text" name="query" id="global-searchbox" class="input-group-field" placeholder="Search all of EMBL-EBI">
+                          <div class="input-group-button">
+                            <input type="submit" name="submit" value="Search" class="button">
+                            <input type="hidden" name="db" value="allebi" checked="checked">
+                            <input type="hidden" name="requestFrom" value="global-masthead" checked="checked">
+                          </div>
+                        </div>
+                      </fieldset>
+                    </form>
+                  </div>
+                </li>
+                <li class="float-right show-for-medium embl-selector">
+                  <button class="button float-right" type="button" data-toggle="embl-dropdown">Hinxton</button>
+                  <!-- The dropdown menu will be programatically added by script.js -->
+                </li>
+              </ul>
+            </div>
+          </nav>
+
+        </div>
+
+        <div class="masthead row">
+
+          <!-- local-title -->
+          <div class="columns medium-12" id="local-title">
+            <h2><a href="../../" title="Back to [service-name] homepage">EBI Framework</a></h2>
+
+          </div>
+          <!-- /local-title -->
+
+          <!-- local-nav -->
+              <nav >
+                <ul dropdown-menu class="dropdown menu float-left" data-description="navigational">
+                  <li><a href="#getting_started">Getting started</a></li>
+                  <li>
+                    <a href="#">Directives</a>
+                    <ul id="directives-list" class="menu">
+                      <li><a href="#accordion">Accordion</a></li><li><a href="#alert">Alert</a></li><li><a href="#buttons">Buttons</a></li><li><a href="#dropdownMenu">Dropdown Menu</a></li><li><a href="#dropdownToggle">Dropdown Toggle</a></li><li><a href="#modal">Modal</a></li><li><a href="#offcanvas">Offcanvas</a></li><li><a href="#orbit">Orbit</a></li><li><a href="#pagination">Pagination</a></li><li><a href="#progressbar">Progressbar</a></li><li><a href="#rating">Rating</a></li><li><a href="#tabs">Tabs</a></li><li><a href="#tooltip">Tooltip</a></li>
+                    </ul>
+                  </li>
+                  <li><a href="#animations">Animations</a></li>
+                </ul>
+              </nav>
+          <!-- /local-nav -->
+
+        </div>
+
+      </header>
+
+      </div>
+  </div>
+
+
+  <div id="content" role="main" class="row">
+
+      <!-- Suggested layout containers -->
+      <section>
+
+        <!-- Your menu structure should make a breadcrumb redundant, but if a breadcrump is needed uncomment the below -->
+        <nav aria-label="You are here:" role="navigation">
+          <ul class="breadcrumbs">
+            <li><a href="../../">EBI Framework</a></li>
+            <li><a href="../">Sample pages</a></li>
+            <li>
+              <span class="show-for-sr">Current: </span> Angular boilerplate
+            </li>
+          </ul>
+        </nav>
+
+        <div id="main-content-area" class="row">
+          <div class="columns">
+            <section>
+
+
+              <div class="off-canvas-wrapper">
+                <div class="off-canvas-wrapper-inner">
+                  <div class="off-canvas-content">
+
+                    <div class="header-placeholder"></div>
+                    <div role="main">
+                      <div class="container">
+                        <div class="row">
+                          <div class="columns border large-12 medium-11 small-11 small-centered">
+
+                            <section>
+                              <h2>Angular Sample Boilerplate</h2>
+                              <p>This page and repo demonstrates a basic implementation of the EBI Visaul Framewrok (v1.2) with Angular (1.5).</p>
+                              <p>This is based off <a href="https://github.com/circlingthesun/angular-foundation-6/tree/gh-pages">circlingthesun's project</a> using <a href="https://github.com/circlingthesun/angular-foundation-6">Foundation 6 directives for Angular 1.5+</a>.</p>
+                            </section>
+
+                            <section class="demo" id="content">
+                              <h3>Adding content with a controller</h3>
+                              <div ng-controller="AddContentCtrl">
+                                <div ng-repeat="content in contents" class="{{content.class}}" close="closeAlert($index)"><p>{{content.meat}}</p></div>
+                                <button class='button' ng-click="addContent()"><span class="icon icon-functional" data-icon="+"></span> Add mo' content!</button>
+                              </div>
+                            </section>
+                            <script>angular.module('foundationDemoApp').controller('AddContentCtrl', function($scope) {
+                                $scope.contents = [
+                                  { class: '', meat: 'Oh snap! This content was added through a module.' },
+                                  { class: 'callout', meat: 'Well done! You\'ve read another message!' }
+                                ];
+
+                                $scope.addContent = function() {
+                                  $scope.contents.push({class: '', meat: "Mo content!"});
+                                };
+
+                              });
+                            </script>
+
+                            <section id="getting_started">
+                              <div class="page-header">
+                                <h2>Getting started</h2>
+                                <p>Here's a kitchen sink that shows how to use a bunch of Foundation functionality using the Angular directives. For more on how they work, check out the source or <a href="https://github.com/circlingthesun/angular-foundation-6">head here</a>.</p>
+                              </div>
+
+                              <!-- <alert type="'warning'">Please note that this port of Angular Foundation is a work in progress. Not all components have been ported to Foundation for Sites 6.</alert> -->
+
+                              <h3>Dependencies</h3>
+                              <p>
+                                This repository contains a set of <strong>native AngularJS directives</strong> based on
+                                Foundation's markup and CSS. As a result no dependency on
+                                jQuery or Foundation's
+                                JavaScript is required. The <strong>only required dependencies</strong> are:
+                              </p>
+                              <ul>
+                                <li><strong>AngularJS</strong> 1.5 (tested with <!-- 1.5.10 and --> 1.5.10)</li>
+                                <li><strong>Foundation 6 CSS</strong> (tested with version 6.2.3).</li>
+                              </ul>
+                              <h3>Downloading</h3>
+                              <p>
+                                Build files for all directives are distributed in several flavours: minified for production usage, un-minified
+                                for development, with or without templates. All the options are described and can be
+                                <a href="https://github.com/circlingthesun/angular-foundation-6/tree/gh-pages">downloaded from here</a>.
+                              </p>
+                              <h3>Installation</h3>
+                              <p>As soon as you've got all the files downloaded and included in your page you just need to declare
+                                 a dependency on the <code>mm.foundation</code> <a href="http://docs.angularjs.org/guide/module">module</a>:<br>
+                                 <pre><code>angular.module('myModule', ['mm.foundation']);</code></pre>
+                              </p>
+                            </section>
+
+                              <section class="demo" id="accordion">
+                                <div class="page-header">
+                                  <h2>Accordion
+                                    <small>
+                                      (<a target="_blank" href="https://github.com/circlingthesun/angular-foundation-6/tree/master/src/accordion">mm.foundation.accordion</a>)
+                                    </small>
+                                  </h2>
+                                </div>
+                                <hr>
+                                <div class="row">
+                                  <div class="columns medium-6 show-grid">
+                                    <div ng-controller="AccordionDemoCtrl">
+              <label class="checkbox">
+                <input type="checkbox" ng-model="oneAtATime">
+                Open only one at a time
+              </label>
+
+              <accordion close-others="oneAtATime">
+                <accordion-group heading="Static Header, initially expanded" is-open="true">
+                  This content is straight in the template.
+                </accordion-group>
+                <accordion-group heading="{{group.title}}" ng-repeat="group in groups">
+                  {{group.content}}
+                </accordion-group>
+                <accordion-group heading="Dynamic Body Content">
+                  <p>The body of the accordion group grows to fit the contents</p>
+                    <button class="button small" ng-click="addItem()">Add Item</button>
+                    <div ng-repeat="item in items">{{item}}</div>
+                </accordion-group>
+                <accordion-group is-open="isopen">
+                    <accordion-heading>
+                        I can have markup, too!
+                    </accordion-heading>
+                    This is just some content to illustrate fancy headings.
+                </accordion-group>
+              </accordion>
+            </div>
+
+                                  </div>
+                                  <div class="columns medium-6">
+                                    <p>The <strong>accordion directive</strong> builds on top of the collapse directive to provide a list of items, with collapsible bodies that are collapsed or expanded by clicking on the item&#39;s header.</p>
+            <p>We can control whether expanding an item will cause the other items to close, using the <code>close-others</code> attribute on accordion.</p>
+            <p>The body of each accordion group is transcluded in to the body of the collapsible element.</p>
+
+                                  </div>
+                                </div>
+                              </section>
+                              <script>angular.module('foundationDemoApp').controller('AccordionDemoCtrl', function($scope) {
+                $scope.oneAtATime = true;
+
+                $scope.groups = [{
+                    title: "Dynamic Group Header - 1",
+                    content: "Dynamic Group Body - 1"
+                }, {
+                    title: "Dynamic Group Header - 2",
+                    content: "Dynamic Group Body - 2"
+                }];
+
+                $scope.items = ['Item 1', 'Item 2', 'Item 3'];
+
+                $scope.addItem = function() {
+                    var newItemNo = $scope.items.length + 1;
+                    $scope.items.push('Item ' + newItemNo);
+                };
+            });
+            </script>
+
+                              <section class="demo" id="alert">
+                                <div class="page-header">
+                                  <h2>Alert
+                                    <small>
+                                      (<a target="_blank" href="https://github.com/circlingthesun/angular-foundation-6/tree/master/src/alert">mm.foundation.alert</a>)
+                                    </small>
+                                  </h2>
+                                </div>
+                                <hr>
+                                <div class="row">
+                                  <div class="columns medium-6 show-grid">
+                                    <div ng-controller="AlertDemoCtrl">
+              <alert ng-repeat="alert in alerts" type="alert.type" close="closeAlert($index)">{{alert.msg}}</alert>
+              <button class='button' ng-click="addAlert()">Add Alert</button>
+            </div>
+
+                                  </div>
+                                  <div class="columns medium-6">
+                                    <p>Alert is an AngularJS-version of Foundation&#39;s alert.</p>
+            <p>This directive can be used to generate alerts from the dynamic model data (using the ng-repeat directive);</p>
+            <p>The presence of the &quot;close&quot; attribute determines if a close button is displayed</p>
+
+                                  </div>
+                                </div>
+                                <!-- <hr> -->
+                              </section>
+                              <script>angular.module('foundationDemoApp').controller('AlertDemoCtrl', function($scope) {
+              $scope.alerts = [
+                { type: 'alert', msg: 'Oh snap! Change a few things up and try submitting again.' },
+                { type: 'success round', msg: 'Well done! You successfully read this important alert message.' }
+              ];
+
+              $scope.addAlert = function() {
+                $scope.alerts.push({type: 'alert', msg: "Another alert!"});
+              };
+
+              $scope.closeAlert = function(index) {
+                $scope.alerts.splice(index, 1);
+              };
+
+            });
+            </script>
+
+                              <section class="demo" id="buttons">
+                                <div class="page-header">
+                                  <h2>Buttons
+                                    <small>
+                                      (<a target="_blank" href="https://github.com/circlingthesun/angular-foundation-6/tree/master/src/buttons">mm.foundation.buttons</a>)
+                                    </small>
+                                  </h2>
+                                </div>
+                                <hr>
+                                <div class="row">
+                                  <div class="columns medium-6 show-grid">
+                                    <div ng-controller="ButtonsCtrl">
+                <h4>Single toggle</h4>
+                <pre>{{singleModel}}</pre>
+                <button type="button" class="button" ng-model="singleModel" btn-checkbox btn-checkbox-true="1" btn-checkbox-false="0">
+                    Single Toggle
+                </button>
+                <h4>Checkbox</h4>
+                <pre>{{checkModel}}</pre>
+                <div class="button-group">
+                    <button type="button" class="button" ng-model="checkModel.left" btn-checkbox>Left</button>
+                    <button type="button" class="button" ng-model="checkModel.middle" btn-checkbox>Middle</button>
+                    <button type="button" class="button" ng-model="checkModel.right" btn-checkbox>Right</button>
+                </div>
+                <h4>Radio</h4>
+                <pre>{{radioModel}}</pre>
+                <div class="button-group">
+                    <button type="button" class="button" ng-model="radioModel" btn-radio="'Left'">Left</button>
+                    <button type="button" class="button" ng-model="radioModel" btn-radio="'Middle'">Middle</button>
+                    <button type="button" class="button" ng-model="radioModel" btn-radio="'Right'">Right</button>
+                </div>
+            </div>
+
+                                  </div>
+                                  <div class="columns medium-6">
+                                    <p>There are 2 directives that can make a group of buttons to behave like a set of checkboxes or radio buttons.</p>
+
+                                  </div>
+                                </div>
+                                <!-- <hr> -->
+                              </section>
+                              <script>angular.module('foundationDemoApp').controller('ButtonsCtrl', function ($scope) {
+
+              $scope.singleModel = 1;
+
+              $scope.radioModel = 'Middle';
+
+              $scope.checkModel = {
+                left: false,
+                middle: true,
+                right: false
+              };
+            });
+            </script>
+
+                              <section class="demo" id="dropdownMenu">
+                                <div class="page-header">
+                                  <h2>Dropdown Menu
+                                    <small>
+                                      (<a target="_blank" href="https://github.com/circlingthesun/angular-foundation-6/tree/master/src/dropdownMenu">mm.foundation.dropdownMenu</a>)
+                                    </small>
+                                  </h2>
+                                </div>
+                                <hr>
+                                <div class="row">
+                                  <div class="columns medium-6 show-grid">
+                                    <div ng-controller="TopBarDemoCtrl">
+              <!-- Horisontal -->
+
+              <h2>Horisontal menu</h2>
+
+              <ul class="dropdown menu" dropdown-menu>
+                <li>
+                  <a tabindex="0">Item 1</a>
+                  <ul class="menu">
+                    <li><a href="#">Item 1A</a></li>
+                    <li>
+                      <a href="#">Item 1B</a>
+                      <ul class="menu">
+                        <li><a href="#">Item 1B i</a></li>
+                        <li><a href="#">Item 1B ii</a></li>
+                        <li>
+                          <a href="#">Item 1B iii</a>
+                          <ul class="menu">
+                            <li><a href="#">Item 1B iii alpha</a></li>
+                            <li><a href="#">Item 1B iii omega</a></li>
+                          </ul>
+                        </li>
+                        <li>
+                          <a href="#">Item 1B iv</a>
+                          <ul class="menu">
+                            <li><a href="#">Item 1B iv alpha</a></li>
+                          </ul>
+                        </li>
+                      </ul>
+                    </li>
+                    <li><a href="#">Item 1C</a></li>
+                  </ul>
+                </li>
+                <li>
+                  <a href="#">Item 2</a>
+                  <ul class="menu">
+                    <li><a href="#">Item 2A</a></li>
+                    <li><a href="#">Item 2B</a></li>
+                  </ul>
+                </li>
+                <li><a href="#">Item 3</a></li>
+                <li><a href="#">Item 4</a></li>
+              </ul>
+
+              <!-- Vertical -->
+              <h2>Vertical menu</h2>
+
+              <ul class="vertical dropdown menu" dropdown-menu style="max-width: 300px;">
+                <li>
+                  <a href="#" tabindex="0">Item 1</a>
+                  <ul class="menu">
+                    <li><a href="#">Item 1A Loooong</a></li>
+                    <li><a href="#">Item 1B</a></li>
+                  </ul>
+                </li>
+                <li>
+                  <a href="#">Item 2</a>
+                  <ul class="menu">
+                    <li><a href="#">Item 2A</a></li>
+                    <li><a href="#">Item 2B</a></li>
+                  </ul>
+                </li>
+                <li>
+                  <a href="#">Item 3</a>
+                  <ul class="menu">
+                    <li><a href="#">Item 3A</a></li>
+                    <li><a href="#">Item 3B</a></li>
+                  </ul>
+                </li>
+                <li>
+                  <a href="#">Item 1</a>
+                  <ul class="menu">
+                    <li><a href="#">Item 1A Loooong</a></li>
+                    <li>
+                      <a href="#"> Item 1 sub</a>
+                      <ul class="menu">
+                        <li><a href="#">Item 1 subA</a></li>
+                        <li><a href="#">Item 1 subB</a></li>
+                        <li>
+                          <a href="#"> Item 1 sub</a>
+                          <ul class="menu">
+                            <li><a href="#">Item 1 subA</a></li>
+                            <li><a href="#">Item 1 subB</a></li>
+                          </ul>
+                        </li>
+                        <li>
+                          <a href="#"> Item 1 sub</a>
+                          <ul class="menu">
+                            <li><a href="#">Item 1 subA</a></li>
+                            <li><a href="#">Item 1 subB</a></li>
+                          </ul>
+                        </li>
+                      </ul>
+                    </li>
+                    <li><a href="#">Item 1B</a></li>
+                  </ul>
+                </li>
+              </ul>
+
+
+            </div>
+
+                                  </div>
+                                  <div class="columns medium-6">
+                                    <p>A directive that provides the <a href="http://foundation.zurb.com/docs/components/topbar.html">Foundation Dropdown Menu</a> component.</p>
+            <p>The directive relies on the same markup as the original Foundation Dropdown Menu. </p>
+            <p>The following settings can be applied as attributes to the root element with the <code>dropdown-menu</code> attribute:</p>
+            <ul>
+            <li><code>disable-hover</code>: A mouse hover event will no open the root menu.</li>
+            <li><code>disable-click-open</code>: Click events will not open menus, only hover (not implemented yet).</li>
+            <li><code>closing-time</code>: Amount of time to delay closing a submenu on a mouseleave event. Default is 500ms</li>
+            </ul>
+            <p>See the demo page for example on how to use this and visit the <a href="http://foundation.zurb.com/sites/docs/dropdown-menu.html">Foundation docs</a> for more details.</p>
+
+                                  </div>
+                                </div>
+                              </section>
+                              <script>angular.module('foundationDemoApp').controller('TopBarDemoCtrl', function ($scope) {
+
+            });
+            </script>
+
+                              <section class="demo" id="dropdownToggle">
+                                <div class="page-header">
+                                  <h2>Dropdown Toggle
+                                    <small>
+                                      (<a target="_blank" href="https://github.com/circlingthesun/angular-foundation-6/tree/master/src/dropdownToggle">mm.foundation.dropdownToggle</a>)
+                                    </small>
+                                  </h2>
+                                </div>
+                                <hr>
+                                <div class="row">
+                                  <div class="columns medium-6 show-grid">
+                                    <div ng-controller="DropdownCtrl">
+
+              <dropdown-toggle>
+                <toggle><p><a>Click me for a dropdown-toggle, yo!</a></p></toggle>
+                <pane>
+                  <ul class="menu vertical">
+                    <li ng-repeat="choice in items">
+                      <a>{{choice}}</a>
+                    </li>
+                    <li>
+                      <a ng-click="$close()">Close</a>
+                    </li>
+                  </ul>
+                </pane>
+              </dropdown-toggle>
+
+              <dropdown-toggle close-on-click="true" pane-align="right">
+                <toggle>
+                  <a class="dropdown button large">dropdown-toggles can also have links!</a>
+                </toggle>
+                <pane>
+                  <ul class="menu vertical">
+                    <li ng-repeat="(label, url) in linkItems">
+                      <a href="{{url}}" target="_blank">{{label}}</a>
+                    </li>
+                  </ul>
+                </pane>
+              </dropdown-toggle>
+
+              <div class="button-group">
+                <a class="button">Primary Action</a>
+                <dropdown-toggle close-on-click="true" pane-align="center">
+                  <toggle>
+                    <a class="dropdown button arrow-only">
+                      <span class="show-for-sr">Show menu</span>
+                    </a>
+                  </toggle>
+                  <pane>
+                    <ul class="menu vertical">
+                      <li ng-repeat="choice in items">
+                        <a>{{choice}}</a>
+                      </li>
+                    </ul>
+                  </pane>
+                </dropdown-toggle>
+              </div>
+
+              <dropdown-toggle toggle-on-hover="true" pane-offset="-2">
+                <toggle>
+                  <a class="dropdown button large">Hover over me!</a>
+                </toggle>
+                <pane>
+                    <ul class="menu vertical">
+                      <li ng-repeat="choice in items">
+                        <a>{{choice}}</a>
+                      </li>
+                    </ul>
+                </pane>
+              </dropdown-toggle>
+
+            </div>
+
+                                  </div>
+                                  <div class="columns medium-6">
+                                    <p>DropdownToggle is a simple directive which will toggle a dropdown link on click.  Simply put it on the toggler-element, and it will find the target element and toggle it when the element matching the value of the <code>dropdown-toggle</code> attribute is clicked.</p>
+            <p>The following settings can be applied as attributes to the root element:</p>
+            <ul>
+            <li><code>close-on-click</code>: Allows a click on the body to close the dropdown.</li>
+            <li><code>pane-align</code>: Determines how the dropdown-pane should be aligned from the toggle.</li>
+            <li><code>toggle-on-hover</code>: Toggles the dropdown-pane when hovering over the toggle instead of on click.</li>
+            <li><code>pane-offset</code>: Sets the pane&#39;s vertical distance from the toggle.</li>
+            </ul>
+            <p>The scope of the pane exposes a <code>$close()</code> function that allows you to close the drop down programatically.</p>
+
+                                  </div>
+                                </div>
+
+                              </section>
+                              <script>angular.module('foundationDemoApp').controller('DropdownCtrl', function($scope) {
+              $scope.items = [
+                "The first choice!",
+                "And another choice for you.",
+                "but wait! A third!"
+              ];
+              $scope.linkItems = {
+                "Google": "http://google.com",
+                "AltaVista": "http://altavista.com"
+              };
+            });
+            </script>
+
+                              <section class="demo" id="modal">
+                                <div class="page-header">
+                                  <h2>Modal
+                                    <small>
+                                      (<a target="_blank" href="https://github.com/circlingthesun/angular-foundation-6/tree/master/src/modal">mm.foundation.modal</a>)
+                                    </small>
+                                  </h2>
+                                </div>
+                                <hr>
+                                <div class="row">
+                                  <div class="columns medium-6 show-grid">
+                                    <div ng-controller="ModalDemoCtrl">
+              <script type="text/ng-template" id="myModalContent.html">
+                <h3>I'm a modal!</h3>
+                <ul>
+                  <li ng-repeat="item in items track by $index">
+                    <a ng-click="selected.item = item">{{ item }}</a>
+                  </li>
+                </ul>
+                <p>Selected: <b>{{ selected.item }}</b></p>
+
+                <button class="button" ng-click="openNested()">Open nested</button>
+                <button class="button" ng-click="ok()">OK</button>
+                <button ng-click="cancel()" class="close-button" aria-label="Close reveal" type="button">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+              </script>
+
+              <button class="button" ng-click="open()">Open me!</button>
+              <button class="button" ng-click="open('', false)">No backdrop</button>
+              <button class="button" ng-click="open('', true, 40)">Overflow</button>
+              <button class="button" ng-click="open('tiny')">Tiny</button>
+              <button class="button" ng-click="open('small')">Small</button>
+              <button class="button" ng-click="open('large')">Large</button>
+              <button class="button" ng-click="open('full')">Fullscreen</button>
+              <button class="button" ng-click="open('', true, 3, false)">Close via backdrop click disabled</button>
+              <div ng-show="selected">Selection from a modal: {{ selected }}</div>
+            </div>
+
+                                  </div>
+                                  <div class="columns medium-6">
+                                    <p><code>$modal</code> is a service to quickly create AngularJS-powered modal windows. It is the equivalent of the <a href="http://foundation.zurb.com/docs/components/reveal.html">Foundation Reveal</a> component.
+            Creating custom modals is straightforward: create a partial view, its controller and reference them when using the service.</p>
+            <p>The <code>$modal</code> service has only one method: <code>open(options)</code> where available options are like follows:</p>
+            <ul>
+            <li><code>templateUrl</code> - a path to a template representing modal&#39;s content</li>
+            <li><code>template</code> - inline template representing the modal&#39;s content</li>
+            <li><code>scope</code> - a scope instance to be used for the modal&#39;s content (actually the <code>$modal</code> service is going to create a child scope of a provided scope). Defaults to <code>$rootScope</code></li>
+            <li><code>controller</code> - a controller for a modal instance - it can initialize scope used by modal. Accepts the &quot;controller-as&quot; syntax, and can be injected with <code>$modalInstance</code></li>
+            <li><code>controllerAs</code> - an alternative to the aforementioned &quot;controller-as&quot; syntax. This is intended for the case of when the <code>controller</code> option is assigned an anonymous or local function and thus the &quot;controller-as&quot; syntax couldn&#39;t be applied.</li>
+            <li><code>resolve</code> - members that will be resolved and passed to the controller as locals; it is equivalent of the <code>resolve</code> property for AngularJS routes</li>
+            <li><code>backdrop</code> - controls presence of a backdrop. Allowed values: true (default), false (no backdrop), <code>&#39;static&#39;</code> - backdrop is present but modal window is not closed when clicking outside of the modal window.</li>
+            <li><code>keyboard</code> - indicates whether the dialog should be closable by hitting the ESC key, defaults to true</li>
+            <li><code>windowClass</code> - additional CSS class(es) to be added to a modal window template</li>
+            <li><code>size</code> - controls the size of the modal. Allowed values: <code>tiny</code>, <code>small</code>, <code>large</code>, and <code>full</code>.</li>
+            <li><code>closeOnClick</code> - determines whether clicking the backdrop closes the modal. Defaults to <code>true</code>.</li>
+            </ul>
+            <p>The <code>open</code> method returns a modal instance, an object with the following properties:</p>
+            <ul>
+            <li><code>close(result)</code> - a method that can be used to close a modal, passing a result</li>
+            <li><code>dismiss(reason)</code> - a method that can be used to dismiss a modal, passing a reason</li>
+            <li><code>reposition()</code> - recalculates and positions the top position of the modal</li>
+            <li><code>result</code> - a promise that is resolved when a modal is closed and rejected when a modal is dismissed</li>
+            <li><code>opened</code> - a promise that is resolved when a modal gets opened after downloading content&#39;s template and resolving all variables</li>
+            </ul>
+            <p>In addition the scope associated with modal&#39;s content is augmented with 2 methods:</p>
+            <ul>
+            <li><code>$close(result)</code> - an alias for <code>$modalInstance.close()</code></li>
+            <li><code>$dismiss(reason)</code> - an alias for <code>$modalInstance.dismiss()</code></li>
+            </ul>
+            <p>Those methods make it easy to close a modal window without a need to create a dedicated controller</p>
+
+                                  </div>
+                                </div>
+                              </section>
+                              <script>angular.module('foundationDemoApp').controller('ModalDemoCtrl', function($scope, $modal, $log) {
+
+                $scope.open = open;
+
+                function open(size, backdrop, itemCount, closeOnClick) {
+
+                    $scope.items = [];
+
+                    var count = itemCount || 3;
+
+                    for(var i = 0; i < count; i++){
+                        $scope.items.push('item ' + i);
+                    }
+
+                    var params = {
+                        templateUrl: 'myModalContent.html',
+                        resolve: {
+                            items: function() {
+                                return $scope.items;
+                            },
+                        },
+                        controller: function($scope, $modalInstance, items) {
+
+                            $scope.items = items;
+                            $scope.selected = {
+                                item: $scope.items[0],
+                            };
+
+                            $scope.reposition = function() {
+                                $modalInstance.reposition();
+                            };
+
+                            $scope.ok = function() {
+                                $modalInstance.close($scope.selected.item);
+                            };
+
+                            $scope.cancel = function() {
+                                $modalInstance.dismiss('cancel');
+                            };
+
+                            $scope.openNested = function() {
+                                open();
+                            };
+                        }
+                    };
+
+                    if(angular.isDefined(closeOnClick)){
+                        params.closeOnClick = closeOnClick;
+                    }
+
+                    if(angular.isDefined(size)){
+                        params.size = size;
+                    }
+
+                    if(angular.isDefined(backdrop)){
+                        params.backdrop = backdrop;
+                    }
+
+                    var modalInstance = $modal.open(params);
+
+                    modalInstance.result.then(function(selectedItem) {
+                        $scope.selected = selectedItem;
+                    }, function() {
+                        $log.info('Modal dismissed at: ' + new Date());
+                    });
+                };
+            });
+            </script>
+
+                              <section class="demo" id="offcanvas">
+                                <div class="page-header">
+                                  <h2>Offcanvas
+                                    <small>
+                                      (<a target="_blank" href="https://github.com/circlingthesun/angular-foundation-6/tree/master/src/offcanvas">mm.foundation.offcanvas</a>)
+                                    </small>
+                                  </h2>
+                                </div>
+                                <hr>
+                                <div class="row">
+                                  <div class="columns medium-6 show-grid">
+                                    <div ng-controller="OffCanvasDemoCtrl">
+                <div class="off-canvas-wrapper">
+                    <div class="off-canvas-wrapper-inner">
+                        <div class="title-bar">
+                            <div class="title-bar-left">
+                                <a class="left-off-canvas-toggle menu-icon" ><span></span></a>
+                                <span class="title-bar-title">Foundation</span>
+                            </div>
+
+                            <div class="title-bar-right">
+                                <a class="right-off-canvas-toggle menu-icon" ><span></span></a>
+                            </div>
+                        </div>
+                        <div class="off-canvas position-left">
+                            <ul class="mobile-ofc vertical menu">
+                                <li>
+                                  <a href="#">Link 1</a>
+                                  <ul class="submenu menu vertical">
+                                    <li><a href="#">Sublink 1</a></li>
+                                    <li><a href="#">Sublink 2</a></li>
+                                    <li><a href="#">Sublink 3</a></li>
+                                    <li><a href="#">Sublink 4</a></li>
+                                  </ul>
+                                </li>
+
+                                <li>
+                                  <a href="#">Link 2</a>
+                                  <ul class="submenu menu vertical">
+                                    <li><a href="#">Sublink 5</a></li>
+                                    <li><a href="#">Sublink 6</a></li>
+                                    <li><a href="#">Sublink 7</a></li>
+                                  </ul>
+                                </li>
+
+                                <li><a href="#" class="button">Button 1</a></li>
+                            </ul>
+                        </div>
+                        <div class="off-canvas position-right">
+                            <ul class="mobile-ofc vertical menu">
+                                <li>
+                                  <a href="#">Link 1</a>
+                                  <ul class="submenu menu vertical">
+                                    <li><a href="#">Sublink 1</a></li>
+                                    <li><a href="#">Sublink 2</a></li>
+                                    <li><a href="#">Sublink 3</a></li>
+                                    <li><a href="#">Sublink 4</a></li>
+                                  </ul>
+                                </li>
+
+                                <li>
+                                  <a href="#">Link 2</a>
+                                  <ul class="submenu menu vertical">
+                                    <li><a href="#">Sublink 5</a></li>
+                                    <li><a href="#">Sublink 6</a></li>
+                                    <li><a href="#">Sublink 7</a></li>
+                                  </ul>
+                                </li>
+
+                                <li><a href="#" class="button">Button 1</a></li>
+                            </ul>
+                        </div>
+                        <div class="off-canvas-content">
+                            <div class="small-12 columns">
+                                <h2>How to use</h2>
+                                <p>Just use the standard layout for an offcanvas page as documented in the <a href="http://foundation.zurb.com/docs/components/offcanvas.html">foundation docs</a></p>
+                                <p>As long as you include mm.foundation.offcanvas it should simply work</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+                                  </div>
+                                  <div class="columns medium-6">
+                                    <p>A lightweight directive that provides the <a href="http://foundation.zurb.com/docs/components/offcanvas.html">Foundation Offcanvas</a> component.</p>
+            <p>There are no settings. You simply need to include the foundation off canvas CSS component in your page.</p>
+            <p>The off canvas module expects the use of several nested elements with the following classes:</p>
+            <ul>
+            <li><code>off-canvas-wrapper</code>: The most outter page wrapper.</li>
+            <li><code>inner-wrapper</code>: Second page wrapper nested directly inside off-canvas-wrapper.</li>
+            <li><code>left-off-canvas-toggle</code>: Wraps the left off canvas menu.</li>
+            <li><code>right-off-canvas-toggle</code>: Wraps the right off canvas menu.</li>
+            <li><code>exit-off-canvas</code>: Occludes the main page content when an off canvas menu is visible. Hides the menu when clicked.</li>
+            <li><code>off-canvas-list</code>: Contains off canvas menu items. Hides the menu after a nested link is clicked.</li>
+            </ul>
+            <p>See the demo page for example on how to use this and see the <a href="http://foundation.zurb.com/docs/components/offcanvas.html">Foundation docs</a> for more details.</p>
+
+                                  </div>
+                                </div>
+
+                              </section>
+                              <script>angular.module('foundationDemoApp').controller('OffCanvasDemoCtrl', function ($scope) {
+
+            });
+            </script>
+
+                              <section class="demo" id="orbit">
+                                <div class="page-header">
+                                  <h2>Orbit
+                                    <small>
+                                      (<a target="_blank" href="https://github.com/circlingthesun/angular-foundation-6/tree/master/src/orbit">mm.foundation.orbit</a>)
+                                    </small>
+                                  </h2>
+                                </div>
+                                <hr>
+                                <div class="row">
+                                  <div class="columns medium-6 show-grid">
+                                    <div ng-controller="OrbitDemoCtrl">
+              <div class="orbit">
+                <ul class="orbit-container">
+                  <li class="orbit-slide is-active">
+                    <div style="background-color: #20b2aa; padding: 2rem 4rem; color: #fefefe;">
+                      Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                    </div>
+                  </li>
+                  <li class="orbit-slide">
+                    <div style="background-color: #663399; padding: 2rem 4rem; color: #fefefe;">
+                      Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                    </div>
+                  </li>
+                  <li class="orbit-slide">
+                    <div style="background-color: #b8860b; padding: 2rem 4rem; color: #fefefe;">
+                      Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                    </div>
+                  </li>
+                  <li class="orbit-slide">
+                    <div style="background-color: #16b80b; padding: 2rem 4rem; color: #fefefe;">
+                      Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                    </div>
+                  </li>
+                </ul>
+
+                <nav class="orbit-bullets">
+                </nav>
+
+              </div>
+            </div>
+
+                                  </div>
+                                  <div class="columns medium-6">
+                                    <p>Beta version of the orbit directive.</p>
+
+                                  </div>
+                                </div>
+
+                              </section>
+                              <script>angular.module('foundationDemoApp').controller('OrbitDemoCtrl', function ($scope) {
+
+            });
+            </script>
+
+                              <section class="demo" id="pagination">
+                                <div class="page-header">
+                                  <h2>Pagination
+                                    <small>
+                                      (<a target="_blank" href="https://github.com/circlingthesun/angular-foundation-6/tree/master/src/pagination">mm.foundation.pagination</a>)
+                                    </small>
+                                  </h2>
+                                </div>
+                                <hr>
+                                <div class="row">
+                                  <div class="columns medium-6 show-grid">
+                                    <div ng-controller="PaginationDemoCtrl">
+                <h4>Default</h4>
+                <pagination total-items="totalItems" page="currentPage"></pagination>
+                <pagination boundary-links="true" total-items="totalItems" page="currentPage" class="pagination-sm" previous-text="&lsaquo;" next-text="&rsaquo;" first-text="&laquo;" last-text="&raquo;"></pagination>
+                <pagination direction-links="false" boundary-links="true" total-items="totalItems" page="currentPage"></pagination>
+                <pagination direction-links="false" total-items="totalItems" page="currentPage" num-pages="smallnumPages"></pagination>
+                <pre>The selected page no: {{currentPage}}</pre>
+                <button class="button secondary" ng-click="setPage(3)">Set current page to: 3</button>
+
+                <hr />
+                <h4>Pager</h4>
+                <pager total-items="totalItems" page="currentPage"></pager>
+
+                <hr />
+                <h4>Limit the maximum visible buttons</h4>
+                <pagination total-items="bigTotalItems" page="bigCurrentPage" max-size="maxSize" class="pagination-sm" boundary-links="true"></pagination>
+                <pagination total-items="bigTotalItems" page="bigCurrentPage" max-size="maxSize" class="pagination-sm" boundary-links="true" rotate="false" num-pages="numPages"></pagination>
+                <pre>Page: {{bigCurrentPage}} / {{numPages}}</pre>
+            </div>
+
+                                  </div>
+                                  <div class="columns medium-6">
+                                    <p>A lightweight pagination directive that is focused on ... providing pagination &amp; will take care of visualising a pagination bar and enable / disable buttons correctly!</p>
+            <h3 id="pagination-settings">Pagination Settings</h3>
+            <p>Settings can be provided as attributes in the <code>&lt;pagination&gt;</code> or globally configured through the <code>paginationConfig</code>.</p>
+            <ul>
+            <li><p><code>page</code> <i class="fa fa-eye"></i>
+              :
+              Current page number. First page is 1.</p>
+            </li>
+            <li><p><code>total-items</code> <i class="fa fa-eye"></i>
+              :
+              Total number of items in all pages.</p>
+            </li>
+            <li><p><code>items-per-page</code> <i class="fa fa-eye"></i>
+              <em>(Defaults: 10)</em> :
+              Maximum number of items per page. A value less than one indicates all items on one page.</p>
+            </li>
+            <li><p><code>max-size</code> <i class="fa fa-eye"></i>
+              <em>(Defaults: null)</em> :
+              Limit number for pagination size.</p>
+            </li>
+            <li><p><code>num-pages</code> <small class="badge">readonly</small>
+              <em>(Defaults: angular.noop)</em> :
+              An optional expression assigned the total number of pages to display.</p>
+            </li>
+            <li><p><code>rotate</code>
+              <em>(Defaults: true)</em> :
+              Whether to keep current page in the middle of the visible ones.</p>
+            </li>
+            <li><p><code>on-select-page (page)</code>
+              <em>(Default: null)</em> :
+              An optional expression called when a page is selected having the page number as argument.</p>
+            </li>
+            <li><p><code>direction-links</code>
+              <em>(Default: true)</em> :
+              Whether to display Previous / Next buttons.</p>
+            </li>
+            <li><p><code>previous-text</code>
+              <em>(Default: &#39;Previous&#39;)</em> :
+              Text for Previous button.</p>
+            </li>
+            <li><p><code>next-text</code>
+              <em>(Default: &#39;Next&#39;)</em> :
+              Text for Next button.</p>
+            </li>
+            <li><p><code>boundary-links</code>
+              <em>(Default: false)</em> :
+              Whether to display First / Last buttons.</p>
+            </li>
+            <li><p><code>first-text</code>
+              <em>(Default: &#39;First&#39;)</em> :
+              Text for First button.</p>
+            </li>
+            <li><p><code>last-text</code>
+              <em>(Default: &#39;Last&#39;)</em> :
+              Text for Last button.</p>
+            </li>
+            </ul>
+            <h3 id="pager-settings">Pager Settings</h3>
+            <p>Settings can be provided as attributes in the <code>&lt;pager&gt;</code> or globally configured through the <code>pagerConfig</code>.<br>For <code>page</code>, <code>total-items</code>, <code>items-per-page</code>, <code>num-pages</code> and <code>on-select-page (page)</code> see pagination settings. Other settings are:</p>
+            <ul>
+            <li><p><code>align</code>
+              <em>(Default: true)</em> :
+              Whether to align each link to the sides.</p>
+            </li>
+            <li><p><code>previous-text</code>
+              <em>(Default: &#39;« Previous&#39;)</em> :
+              Text for Previous button.</p>
+            </li>
+            <li><p><code>next-text</code>
+              <em>(Default: &#39;Next »&#39;)</em> :
+              Text for Next button.</p>
+            </li>
+            </ul>
+
+                                  </div>
+                                </div>
+
+                              </section>
+                              <script>angular.module('foundationDemoApp').controller('PaginationDemoCtrl', function ($scope) {
+              $scope.totalItems = 64;
+              $scope.currentPage = 4;
+              $scope.maxSize = 5;
+
+              $scope.setPage = function (pageNo) {
+                $scope.currentPage = pageNo;
+              };
+
+              $scope.bigTotalItems = 175;
+              $scope.bigCurrentPage = 1;
+            });
+            </script>
+
+                              <section class="demo" id="progressbar">
+                                <div class="page-header">
+                                  <h2>Progressbar
+                                    <small>
+                                      (<a target="_blank" href="https://github.com/circlingthesun/angular-foundation-6/tree/master/src/progressbar">mm.foundation.progressbar</a>)
+                                    </small>
+                                  </h2>
+                                </div>
+                                <hr>
+                                <div class="row">
+                                  <div class="columns medium-6 show-grid">
+                                    <div ng-controller="ProgressDemoCtrl">
+                <style>
+                  .progress .progress-meter {
+                    -webkit-transition: width 1s ease-out;
+                    transition: width 1s ease-out;
+                  }
+                </style>
+
+                <h3>Static</h3>
+                <div class="row">
+                    <div class="columns small-4"><progressbar value="55"></progressbar></div>
+                    <div class="columns small-4"><progressbar value="22" type="warning">22%</progressbar></div>
+                    <div class="columns small-4"><progressbar max="200" value="166" type="alert">166 / 200</progressbar></div>
+                </div>
+
+                <hr />
+                <h3>Dynamic <button class="button small" type="button" ng-click="random()">Randomize</button></h3>
+                <progressbar max="max" value="dynamic">{{dynamic}} / {{max}}</progressbar>
+
+                <small><em>No animation</em></small>
+                <progressbar animate="false" value="dynamic" type="success">{{dynamic}}%</progressbar>
+
+                <small><em>Object (changes type based on value)</em></small>
+                <progressbar class="progress-striped active" value="dynamic" type="{{type}}">{{type}} <i ng-show="showWarning">!!! Watch out !!!</i></progressbar>
+
+            </div>
+
+                                  </div>
+                                  <div class="columns medium-6">
+                                    <p>A progress bar directive that is focused on providing feedback on the progress of a workflow or action.</p>
+            <p>It supports multiple (stacked) bars into the same <code>&lt;progress&gt;</code> element or a single <code>&lt;progressbar&gt;</code> element with optional <code>max</code> attribute and transition animations.</p>
+            <h3 id="settings">Settings</h3>
+            <h4 id="-progressbar-"><code>&lt;progressbar&gt;</code></h4>
+            <ul>
+            <li><p><code>value</code> <i class="fa-eye"></i>
+              :
+              The current value of progress completed.</p>
+            </li>
+            <li><p><code>type</code>
+              <em>(Default: null)</em> :
+              Style type. Possible values are &#39;success&#39;, &#39;warning&#39; etc.</p>
+            </li>
+            <li><p><code>max</code>
+              <em>(Default: 100)</em> :
+              A number that specifies the total value of bars that is required.</p>
+            </li>
+            <li><p><code>animate</code>
+              <em>(Default: true)</em> :
+              Whether bars use transitions to achieve the width change. <strong>IMPORTANT:</strong> Foundation&#39;s CSS does not not apply a <code>transition</code> to progress bars. In order for animations to work, you&#39;ll need to apply a <code>transition</code> in your own CSS. See the demo for an example.</p>
+            </li>
+            </ul>
+
+                                  </div>
+                                </div>
+
+                              </section>
+                              <script>angular.module('foundationDemoApp').controller('ProgressDemoCtrl', function ($scope) {
+
+              $scope.max = 200;
+
+              $scope.random = function() {
+                var value = Math.floor((Math.random() * 100) + 1);
+                var type;
+
+                if (value < 25) {
+                  type = 'success';
+                } else if (value < 50) {
+                  type = 'info';
+                } else if (value < 75) {
+                  type = 'warning';
+                } else {
+                  type = 'alert';
+                }
+
+                $scope.showWarning = (type === 'alert' || type === 'warning');
+
+                $scope.dynamic = value;
+                $scope.type = type;
+              };
+              $scope.random();
+            });
+            </script>
+
+                              <section class="demo" id="rating">
+                                <div class="page-header">
+                                  <h2>Rating
+                                    <small>
+                                      (<a target="_blank" href="https://github.com/circlingthesun/angular-foundation-6/tree/master/src/rating">mm.foundation.rating</a>)
+                                    </small>
+                                  </h2>
+                                </div>
+                                <hr>
+                                <div class="row">
+                                  <div class="columns medium-6 show-grid">
+                                    <div ng-controller="RatingDemoCtrl">
+                <h4>Default</h4>
+                <rating value="rate" max="max" readonly="isReadonly" on-hover="hoveringOver(value)" on-leave="overStar = null"></rating>
+                <span class="label" ng-class="{'label-warning': percent<30, 'label-info': percent>=30 && percent<70, 'label-success': percent>=70}" ng-show="overStar && !isReadonly">{{percent}}%</span>
+
+                <pre style="margin:15px 0;">Rate: <b>{{rate}}</b> - Readonly is: <i>{{isReadonly}}</i> - Hovering over: <b>{{overStar || "none"}}</b></pre>
+
+                <button class="button small alert" ng-click="rate = 0" ng-disabled="isReadonly">Clear</button>
+                <button class="button small" ng-click="isReadonly = ! isReadonly">Toggle Readonly</button>
+                <hr />
+
+                <h4>Custom icons</h4>
+                <div ng-init="x = 5">
+                  <rating value="x" max="15" state-on="'fa-check-circle'" state-off="'fa-check-circle-o'"></rating>
+                  <b>(<i>Rate:</i> {{x}})</b>
+                </div>
+                <div ng-init="y = 2">
+                  <rating value="y" rating-states="ratingStates"></rating>
+                  <b>(<i>Rate:</i> {{y}})</b>
+                </div>
+            </div>
+
+                                  </div>
+                                  <div class="columns medium-6">
+                                    <p>Rating directive that will take care of visualising a star rating bar.</p>
+            <p>It uses Font Awesome icons (<a href="http://fontawesome.io/">http://fontawesome.io/</a>) by default.</p>
+            <h3 id="settings">Settings</h3>
+            <h4 id="-rating-"><code>&lt;rating&gt;</code></h4>
+            <ul>
+            <li><p><code>value</code> <i class="fa fa-eye"></i>
+              :
+              The current rate.</p>
+            </li>
+            <li><p><code>max</code>
+              <em>(Defaults: 5)</em> :
+              Changes the number of icons.</p>
+            </li>
+            <li><p><code>readonly</code>
+              <em>(Defaults: false)</em> :
+              Prevent user&#39;s interaction.</p>
+            </li>
+            <li><p><code>on-hover(value)</code>
+              :
+              An optional expression called when user&#39;s mouse is over a particular icon.</p>
+            </li>
+            <li><p><code>on-leave()</code>
+              :
+              An optional expression called when user&#39;s mouse leaves the control altogether.</p>
+            </li>
+            <li><p><code>state-on</code>
+              <em>(Defaults: null)</em> :
+              A variable used in template to specify the state (class, src, etc) for selected icons.</p>
+            </li>
+            <li><p><code>state-off</code>
+              <em>(Defaults: null)</em> :
+              A variable used in template to specify the state for unselected icons.</p>
+            </li>
+            <li><p><code>rating-states</code>
+              <em>(Defaults: null)</em> :
+              An array of objects defining properties for all icons. In default template, <code>stateOn</code> &amp; <code>stateOff</code> property is used to specify the icon&#39;s class.</p>
+            </li>
+            </ul>
+
+                                  </div>
+                                </div>
+
+                              </section>
+                              <script>angular.module('foundationDemoApp').controller('RatingDemoCtrl', function ($scope) {
+              $scope.rate = 7;
+              $scope.max = 10;
+              $scope.isReadonly = false;
+
+              $scope.hoveringOver = function(value) {
+                $scope.overStar = value;
+                $scope.percent = 100 * (value / $scope.max);
+              };
+
+              $scope.ratingStates = [
+                {stateOn: 'fa-check-circle', stateOff: 'fa-check-circle-o'},
+                {stateOn: 'fa-star', stateOff: 'fa-start-o'},
+                {stateOn: 'fa-heart', stateOff: 'fa-ban'},
+                {stateOn: 'fa-heart'},
+                {stateOff: 'fa-power-off'}
+              ];
+            });
+            </script>
+
+                              <section class="demo" id="tabs">
+                                <div class="page-header">
+                                  <h2>Tabs
+                                    <small>
+                                      (<a target="_blank" href="https://github.com/circlingthesun/angular-foundation-6/tree/master/src/tabs">mm.foundation.tabs</a>)
+                                    </small>
+                                  </h2>
+                                </div>
+                                <hr>
+                                <div class="row">
+                                  <div class="columns medium-6 show-grid">
+                                    <div ng-controller="TabsDemoCtrl">
+              <p>Select a tab by setting active binding to true:</p>
+              <p>
+                <button class="button small" ng-click="tabs[0].active = true">Select second tab</button>
+                <button class="button small" ng-click="tabs[1].active = true">Select third tab</button>
+              </p>
+              <hr />
+
+              <tabset>
+                <tab heading="Static title">Static content</tab>
+                <tab ng-repeat="tab in tabs" heading="{{tab.title}}" active="tab.active">
+                  {{tab.content}}
+                </tab>
+                <tab select="alertMe()">
+                  <tab-heading>
+                    <i class="fa fa-bell"></i> Alert!
+                  </tab-heading>
+                  I've got an HTML heading, and a select callback. Pretty cool!
+                </tab>
+              </tabset>
+
+              <hr />
+
+              <tabset vertical="true" type="navType">
+                <tab heading="Vertical 1">Vertical content 1</tab>
+                <tab heading="Vertical 2">Vertical content 2</tab>
+              </tabset>
+
+              <hr />
+            </div>
+
+                                  </div>
+                                  <div class="columns medium-6">
+                                    <p>Foundation version of the tabs directive.</p>
+            <h3 id="settings">Settings</h3>
+            <h4 id="-tabset-"><code>&lt;tabset&gt;</code></h4>
+            <ul>
+            <li><p><code>vertical</code>
+              <em>(Defaults: false)</em> :
+              Whether tabs appear vertically stacked.</p>
+            </li>
+            <li><p><code>open-on-load</code>
+            <em>(Defaults: true)</em> :
+            Whether to open an active tab automatically.</p>
+            </li>
+            </ul>
+            <h4 id="-tab-"><code>&lt;tab&gt;</code></h4>
+            <ul>
+            <li><p><code>heading</code> or <code>&lt;tab-heading&gt;</code>
+              :
+              Heading text or HTML markup.</p>
+            </li>
+            <li><p><code>active</code> <i class="fa fa-eye"></i>
+              <em>(Defaults: false)</em> :
+              Whether tab is currently selected.</p>
+            </li>
+            <li><p><code>select()</code>
+              <em>(Defaults: null)</em> :
+              An optional expression called when tab is activated.</p>
+            </li>
+            </ul>
+
+                                  </div>
+                                </div>
+
+                              </section>
+                              <script>angular.module('foundationDemoApp').controller('TabsDemoCtrl', function ($scope) {
+              $scope.tabs = [
+                { title:"Dynamic Title 1", content:"Dynamic content 1" },
+                { title:"Dynamic Title 2", content:"Dynamic content 2" }
+              ];
+
+              $scope.alertMe = function() {
+                setTimeout(function() {
+                  alert("You've selected the alert tab!");
+                });
+              };
+            });
+            </script>
+
+                              <section class="demo" id="tooltip">
+                                <div class="page-header">
+                                  <h2>Tooltip
+                                    <small>
+                                      (<a target="_blank" href="https://github.com/circlingthesun/angular-foundation-6/tree/master/src/tooltip">mm.foundation.tooltip</a>)
+                                    </small>
+                                  </h2>
+                                </div>
+                                <hr>
+                                <div class="row">
+                                  <div class="columns medium-6 show-grid">
+                                    <div ng-controller="TooltipDemoCtrl">
+                <div class="form-group">
+                  <label>Dynamic Tooltip Text</label>
+                  <input type="text" ng-model="dynamicTooltipText" class="form-control">
+                </div>
+                <div class="form-group">
+                  <label>Dynamic Tooltip Popup Text</label>
+                  <input type="text" ng-model="dynamicTooltip" class="form-control">
+                </div>
+                <p>
+                  Pellentesque <a href="#" class="has-tip" tooltip="{{dynamicTooltip}}">{{dynamicTooltipText}}</a>,
+                  sit amet venenatis urna cursus eget nunc scelerisque viverra mauris, in
+                  aliquam. Tincidunt lobortis feugiat vivamus at
+                  <a href="#" class="has-tip" tooltip-placement="left" tooltip="On the Left!">left</a> eget
+                  arcu dictum varius duis at consectetur lorem. Vitae elementum curabitur
+                  <a href="#" class="has-tip" tooltip-placement="right" tooltip="On the Right!">right</a>
+                  nunc sed velit dignissim sodales ut eu sem integer vitae. Turpis egestas
+                  <a href="#" class="has-tip" tooltip-placement="bottom" tooltip="On the Bottom!">bottom</a>
+                  pharetra convallis posuere morbi leo urna, at elementum eu, facilisis sed odio morbi quis commodo odio. In cursus
+                  <a href="#" class="has-tip" tooltip-popup-delay='1000' tooltip='appears with delay'>delayed</a> turpis massa tincidunt dui ut.
+                </p>
+
+                <p>
+                  I can even contain HTML. <a href="#" class="has-tip" tooltip-html-unsafe="{{htmlTooltip}}">Check me out!</a>
+                </p>
+
+                <form role="form">
+                  <div class="form-group">
+                    <label>Or use custom triggers, like focus: </label>
+                    <input type="text" value="Click me!" tooltip="See? Now click away..."  tooltip-trigger="focus" tooltip-placement="right" class="form-control" />
+                  </div>
+                </form>
+            </div>
+
+                                  </div>
+                                  <div class="columns medium-6">
+                                    <p>A lightweight, extensible directive for fancy tooltip creation. The tooltip
+            directive supports multiple placements, and more.</p>
+            <p>There are two versions of the tooltip: <code>tooltip</code> and <code>tooltip-html-unsafe</code>. The
+            former takes text only and will escape any HTML provided. The latter takes
+            whatever HTML is provided and displays it in a tooltip; it called &quot;unsafe&quot;
+            because the HTML is not sanitized. <em>The user is responsible for ensuring the
+            content is safe to put into the DOM!</em></p>
+            <p>The tooltip directives provide several optional attributes to control how they
+            will display:</p>
+            <ul>
+            <li><code>tooltip-placement</code>: Where to place it? Defaults to &quot;top&quot;, but also accepts
+            &quot;bottom&quot;, &quot;left&quot;, &quot;right&quot;.</li>
+            <li><code>tooltip-popup-delay</code>: For how long should the user have to have the mouse
+            over the element before the tooltip shows (in milliseconds)? Defaults to 0.</li>
+            <li><code>tooltip-trigger</code>: What should trigger a show of the tooltip? Supports a space separated list of event names</li>
+            <li><code>tooltip-append-to-body</code>: Should the tooltip be appended to <code>$body</code> instead of
+            the parent element?</li>
+            </ul>
+            <p>The tooltip directives require the <code>$position</code> service.</p>
+            <p><strong>Triggers</strong></p>
+            <p>The following show triggers are supported out of the box, along with their
+            provided hide triggers:</p>
+            <ul>
+            <li><code>mouseenter</code>: <code>mouseleave</code></li>
+            <li><code>click</code>: <code>click</code></li>
+            <li><code>focus</code>: <code>blur</code></li>
+            </ul>
+            <p>For any non-supported value, the trigger will be used to both show and hide the
+            tooltip.</p>
+            <p><strong>$tooltipProvider</strong></p>
+            <p>Through the <code>$tooltipProvider</code>, you can change the way tooltips and popovers
+            behave by default; the attributes above always take precedence. The following
+            methods are available:</p>
+            <ul>
+            <li><code>setTriggers( obj )</code>: Extends the default trigger mappings mentioned above
+            with mappings of your own. E.g. <code>{ &#39;openTrigger&#39;: &#39;closeTrigger&#39; }</code>.</li>
+            <li><p><code>options( obj )</code>: Provide a set of defaults for certain tooltip and popover
+            attributes. Currently supports &#39;placement&#39;, &#39;popupDelay&#39;, and
+            <code>appendToBody</code>. Here are the defaults:</p>
+            <pre>
+            placement: 'top',
+            popupDelay: 0,
+            appendToBody: false
+            </pre>
+
+            </li>
+            </ul>
+
+                                  </div>
+                                </div>
+
+                              </section>
+                              <script>angular.module('foundationDemoApp').controller('TooltipDemoCtrl', function($scope) {
+                $scope.dynamicTooltip = 'Hello, World!';
+                $scope.dynamicTooltipText = 'dynamic';
+                $scope.htmlTooltip = "I've been made <b>bold</b>!";
+            });
+            </script>
+
+                            <section id="animations">
+                              <div class="page-header">
+                                <h2>Animations</h2>
+                                <p>Animations are supported via ngAnimate. This can be used in conjuction with Zurb's <a href="https://github.com/zurb/motion-ui">MotionUI library.</a></p>
+                              </div>
+                              <div class="row">
+                                <div class="columns medium-12">
+                                </div>
+                              </div>
+                              <!-- <hr> -->
+                              <div class="row code">
+                                <div class="columns medium-12">
+                                  <pre>$motion-ui-classes: (
+                      chain: true,
+                      prefix: 'ng-',
+                      active: '-active',
+                    );
+
+                    @import 'motion-ui';
+
+                    .tooltip {
+                        @include mui-fade(
+                          $state: in,
+                          $duration: 0.25s,
+                          $delay: 0s
+                        );
+                    }
+
+                    .tooltip {
+                        @include mui-fade(
+                            $state: out,
+                            $from: 1,
+                            $to: 0,
+                            $duration: 0.25s,
+                            $delay: 0s
+                        );
+                    }
+
+                    .reveal-overlay {
+                        @include mui-fade($state: in);
+                    }
+
+                    .reveal-overlay {
+                        @include mui-fade(
+                            $state: out,
+                            $from: 1,
+                            $to: 0
+                        );
+                    }
+
+                    .reveal {
+                        @include mui-slide(
+                            $state: in, // Specify in or out
+                            $direction: down, // Can be top, right, bottom, or left
+                            $fade: true, // If true, the element fades simultaneously
+                            $duration: 0.25s,
+                            $timing: cubic-bezier,
+                            $delay: 0s
+                        );
+                    }
+
+                    .reveal {
+                        @include mui-zoom(
+                            $state: out,
+                            $from: 1,
+                            $to: 0,
+                            $duration: 0.25s
+                        );
+                    }</pre>
+                                </div>
+                              </div>
+                            </section>
+                          </div>
+                        </div>
+                      </div><!-- /.container -->
+                    </div><!-- /.main -->
+                  </div>
+                </div>
+              </div>
+              <script src="assets/smoothscroll-angular-custom.js"></script>
+              <script type="text/ng-template" id="downloadModal.html">
+                <div class="modal-header"><h4 class="modal-title">Download Angular UI Bootstrap</h4></div>
+                <div class="modal-body">
+                  <form class="form-horizontal">
+                    <div class="form-group">
+                      <label class="col-sm-3 control-label"><strong>Build</strong></label>
+                      <div class="col-sm-9">
+                        <span class="button-group">
+                          <button type="button" class="button" ng-model="options.minified" btn-radio="true">Minified</button>
+                          <button type="button" class="button" ng-model="options.minified" btn-radio="false">Uncompressed</button>
+                        </span>
+                        <small class="help-block">Use <b>Minified</b> version in your deployed application. <b>Uncompressed</b> source code is useful only for debugging and development purpose.</small>
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <label class="col-sm-3 control-label"><strong>Include Templates</strong></label>
+                      <div class="col-sm-9">
+                        <span class="button-group">
+                          <button type="button" class="button" ng-model="options.tpls" btn-radio="true">Yes</button>
+                          <button type="button" class="button" ng-model="options.tpls" btn-radio="false">No</button>
+                        </span>
+                        <small class="help-block">Whether you want to include the <i>default templates</i>, bundled with most of the directives. These templates are based on Bootstrap's markup and CSS.</small>
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <label class="col-sm-3 control-label"><strong>Bower</strong></label>
+                      <div class="col-sm-9">
+                        <small>If you are using Bower just run:</small>
+                        <pre>bower install angular-foundation</pre>
+                        <small class="help-block"><a href="http://bower.io/" target="_blank">Bower</a> is a package manager for the web.</small>
+                      </div>
+                    </div>
+                  </form>
+                </div>
+                <div class="modal-footer">
+                  <a class="button" ng-click="cancel()">Cancel</a>
+                  <a class="button" ng-click="download('0.11.5')"><i class="fa fa-download"></i> Download 0.11.5</a>
+                </div>
+              </script>
+
+
+
+
+
+            </section>
+
+          </div>
+        </div>
+
+      </section>
+      <!-- End suggested layout containers -->
+
+    </div>
+
+
+    <footer>
+      <!-- Optional local footer (insert citation / project-specific copyright / etc here -->
+<!--
+      <div id="local-footer">
+        <div class="row">
+          <span class="reference">How to reference this page: ...</span>
+        </div>
+      </div>
+ -->
+      <!-- End optional local footer -->
+
+      <div id="global-footer">
+
+        <nav id="global-nav-expanded" class="row">
+          <!-- Footer will be automatically inserted by footer.js -->
+        </nav>
+
+        <section id="ebi-footer-meta" class="row">
+          <!-- Footer meta will be automatically inserted by footer.js -->
+        </section>
+
+      </div>
+
+    </footer>
+
+  <!-- JavaScript -->
+
+  <!-- Grab Google CDN's jQuery, with a protocol relative URL; fall back to local if offline -->
+  <!--
+  <script>window.jQuery || document.write('<script src="../js/libs/jquery-1.10.2.min.js"><\/script>')</script>
+  -->
+  <!-- <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script> -->
+  <!-- Your custom JavaScript file scan go here... change names accordingly -->
+  <!--
+  <script defer="defer" src="//www.ebi.ac.uk/web_guidelines/js/plugins.js"></script>
+  <script defer="defer" src="//www.ebi.ac.uk/web_guidelines/js/script.js"></script>
+  -->
+  <script defer="defer" src="//wwwdev.ebi.ac.uk/web_guidelines/EBI-Framework/v1.2/js/cookiebanner.js"></script>
+  <script defer="defer" src="//wwwdev.ebi.ac.uk/web_guidelines/EBI-Framework/v1.2/js/foot.js"></script>
+  <script defer="defer" src="//wwwdev.ebi.ac.uk/web_guidelines/EBI-Framework/v1.2/js/script.js"></script>
+
+  <!-- The Foundation theme JavaScript -->
+  <!-- <script src="//wwwdev.ebi.ac.uk/web_guidelines/EBI-Framework/v1.2/libraries/foundation-6/js/foundation.js"></script> -->
+  <!-- <script src="//wwwdev.ebi.ac.uk/web_guidelines/EBI-Framework/v1.2/js/foundationExtendEBI.js"></script> -->
+  <!-- <script type="text/JavaScript">$(document).foundation();</script> -->
+  <!-- <script type="text/JavaScript">$(document).foundationExtendEBI();</script> -->
+<!--
+   -->
+
+
+  <!-- Google Analytics details... -->
+  <!-- Change UA-XXXXX-X to be your site's ID -->
+  <!--
+  <script>
+    window._gaq = [['_setAccount','UAXXXXXXXX1'],['_trackPageview'],['_trackPageLoadTime']];
+    Modernizr.load({
+      load: ('https:' == location.protocol ? '//ssl' : '//www') + '.google-analytics.com/ga.js'
+    });
+  </script>
+  -->
+
+</body>
+</html>
